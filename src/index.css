@@ -1,0 +1,35 @@
+.card{
+  margin-bottom: 30px;
+}
+
+.card a{
+  text-decoration: none!important;
+  color: #000;
+}
+
+.card-title{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  white-space: initial;
+  text-align: center;
+  color: #000;
+}
+
+.btn-full{
+  width: 100%
+}
+
+.card-subtitle{
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.card-subtitle p{
+  margin: 0;
+}
