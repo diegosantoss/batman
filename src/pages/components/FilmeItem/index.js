@@ -7,10 +7,11 @@ import {
 
 const FilmeItem = (props) => {
   const { filme } = props;
+  const createUrlName = filme.name.split(' ').join('-').toLowerCase();
   return (
     <Col>
       <Card>
-        <Link to={`/${filme.id}`}>
+        <Link to={{ pathname: `/${createUrlName}`, state: filme.id  }} >
           <CardImg top width="100%" src={filme.image.medium} alt={filme.name} />
           <CardBody>
             <CardTitle>{filme.name}</CardTitle>

@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+
+
 const api = axios.create({
-  baseURL: 'https://api.tvmaze.com/'
+  baseURL: 'http://api.tvmaze.com/'
   // headers: {'X-Custom-Header': 'foobar'}
 })
 

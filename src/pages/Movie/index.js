@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ReactHtmlParser from 'react-html-parser';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   Card, CardImg, CardBody,
   CardTitle, CardSubtitle, Button, Col, Row
@@ -9,7 +9,7 @@ import {
 import api from '../../services/Api';
 
 export default function Movie (props){
-  const { id } = useParams();
+  const id = props.location.state;
   const [filme, setFilme] = useState([]);
 
   useEffect( () => {
@@ -18,7 +18,6 @@ export default function Movie (props){
 
       setFilme(response.data)
     }
-
 
     fetchData();
   }, [id])

@@ -17,7 +17,7 @@ export default function Routes(){
       <React.Suspense fallback={<div>Loading...</div>}>
         <Switch>
           <Route path="/" component={Home} exact />
-          <Route path="/:id" component={Movie} />
+          <Route path="/:movie" component={Movie} />
         </Switch>
       </React.Suspense>
     </Router>
