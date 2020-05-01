@@ -5,11 +5,11 @@ import {
   Card, CardImg, CardBody,
   CardTitle, CardSubtitle, Button, Col, Row
 } from 'reactstrap';
+import { Helmet } from 'react-helmet';
 
 import api from '../../services/Api';
 
 export default function Movie (props){
-  const id = props.location.state;
   const { movie } = useParams();
   const [filme, setFilme] = useState([]);
 
@@ -21,25 +21,29 @@ export default function Movie (props){
     }
 
     fetchData();
-  }, [id])
+  }, [movie])
 
   return (
     <>
-    <Row xs="1" sm="2" md="2">
-      <Col>
-        <RenderImage images={filme.image} name={filme.name}/>
-      </Col>
-      <Col>
-        <Card>
-          <CardBody>
-            <CardTitle>{filme.name}</CardTitle>
-            <CardSubtitle><RenderGenres genres={filme.genres} /></CardSubtitle>
-            <div className="card-text"> { ReactHtmlParser(filme.summary) }</div>
-            <Link to="/"><Button className="btn-full">Voltar</Button></Link>
-          </CardBody>
-        </Card>
-      </Col>
-    </Row>
+      <Helmet>
+        <title>{filme.name}</title>
+        <link rel="canonical" href={window.location.href} />
+      </Helmet>    
+      <Row xs="1" sm="2" md="2">
+        <Col>
+          <RenderImage images={filme.image} name={filme.name}/>
+        </Col>
+        <Col>
+          <Card>
+            <CardBody>
+              <CardTitle>{filme.name}</CardTitle>
+              <CardSubtitle><RenderGenres genres={filme.genres} /></CardSubtitle>
+              <div className="card-text"> { ReactHtmlParser(filme.summary) }</div>
+              <Link to="/"><Button className="btn-full">Voltar</Button></Link>
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
     </>
   )
 }

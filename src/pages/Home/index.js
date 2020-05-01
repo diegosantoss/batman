@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from "react-helmet";
 import api from '../../services/Api';
 
 import { Row } from 'reactstrap';
@@ -21,6 +22,11 @@ export default function Home (){
 
   return (
     <>
+      <Helmet>
+        <title>Filmes do Batman</title>
+        <link rel="canonical" href={window.location.href} />
+        <meta name="description" content="O Homem-Morcego (junto com o Superman) foi um dos primeiros grandes exemplos de sucesso dos super-heróis no cinema." />
+      </Helmet>
       <h2>Filmes do Batman</h2>
       <Row xs="1" sm="2" md="4">
         {filmes.map(filme => (
