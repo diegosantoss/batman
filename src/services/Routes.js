@@ -4,8 +4,7 @@ import { createBrowserHistory } from 'history';
 
 const history = createBrowserHistory({
     basename: '',
-    forceRefresh: false,
-    queryKey: false
+    forceRefresh: false
 })
 
 const Home = React.lazy( () => import('../pages/Home'))

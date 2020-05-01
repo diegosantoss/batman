@@ -9,14 +9,13 @@ import { Helmet } from 'react-helmet';
 
 import api from '../../services/Api';
 
-export default function Movie (props){
+export default function Movie (){
   const { movie } = useParams();
   const [filme, setFilme] = useState([]);
 
   useEffect( () => {
     const fetchData = async () => {
-      const response = await api.get(`singlesearch/shows?q=${movie}`);
-
+      const response = await api.get(`shows/${movie}`);
       setFilme(response.data)
     }
 
