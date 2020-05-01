@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ReactHtmlParser from 'react-html-parser';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import {
   Card, CardImg, CardBody,
   CardTitle, CardSubtitle, Button, Col, Row
@@ -10,11 +10,12 @@ import api from '../../services/Api';
 
 export default function Movie (props){
   const id = props.location.state;
+  const { movie } = useParams();
   const [filme, setFilme] = useState([]);
 
   useEffect( () => {
     const fetchData = async () => {
-      const response = await api.get(`shows/${id}`);
+      const response = await api.get(`singlesearch/shows?q=${movie}`);
 
       setFilme(response.data)
     }
