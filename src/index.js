@@ -1,11 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-snapshot';
 import App from './pages/App';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
-ReactDOM.render(
+render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
